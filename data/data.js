@@ -1,7 +1,7 @@
 var data = {
     "cricket": {
         name: "Cricket",
-        img: "../assets/cricket.jpg"
+        img: "/assets/cricket.jpg"
     }
 }
 
