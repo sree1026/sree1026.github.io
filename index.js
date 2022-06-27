@@ -10,22 +10,16 @@ for(let key in data) {
                 </li>`
 }
 showDataElement.innerHTML = template;
-// console.log(template);
-
-// console.log(data);
-
-//service worker
 
 if('serviceWorker' in navigator) {
+
+    // Register service worker only after loading the website
     window.addEventListener('load', () => {
         navigator.serviceWorker.register("./serviceWorker.js")
         .then(reg => console.log(`Service Worker is registered: ${reg}`))
         .catch(err => console.log(`Service Worker Error: ${err}`));
     })
 }
-
-
-
 
 const notifyButton = document.getElementById("#notification");
 
@@ -48,26 +42,12 @@ const randomNotification = function() {
     new Notification(notifyTitle, opt);
 }
 
-let currentState = navigator.onLine;
-
-console.log("Current State of Navigator: ", currentState);
-
-// const id = setInterval(()=> {
-//     console.log("Navigator State: ", navigator.onLine);
-//     if(currentState !== navigator.onLine) {
-//         currentState = navigator.onLine;
-//         randomNotification();
-//     }
-// }, 500)
-
-// window.addEventListener('offline', randomNotification);
-
-// window.onclose = function() {
-//     console.log("clearing timer");
-//     clearInterval(id);
-// }
-
 window.ononline = function() {
-    console.log("Online....")
+    // console.log("Online....")
+    randomNotification();
+}
+
+window.onoffline = function() {
+    // console.log("Offline...");
     randomNotification();
 }

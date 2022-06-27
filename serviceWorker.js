@@ -1,5 +1,5 @@
 
-const cacheName = 'listGamesV2';
+const cacheName = 'cricket-leagues-v1';
 const appShells = [
     'index.html',
     'index.js',
@@ -42,21 +42,7 @@ self.addEventListener('fetch', (e) => {
         const cache = await caches.open(cacheName);
         console.log(`Service worker caching new resource: ${e.request.url}`);
         cache.put(e.request, response.clone());
-        return response
-        // try {
-        //     const response = await fetch(e.request);
-        //     const cache = await caches.open(cacheName);
-        //     console.log(`Service worker caching new resource: ${e.request.url}`);
-        //     cache.put(e.request, response.clone());
-        //     return response
-        // } catch (error) {
-        //     console.log("Error in fetching: ", error);
-        //     const r = await caches.match(e.request);
-        //     console.log("Service worker fetching data from URL: ", e.request.url);
-        //     if(r) {
-        //         return r;
-        //     }
-        // }
+        return response;
     })());
 });
 
