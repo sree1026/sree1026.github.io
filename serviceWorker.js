@@ -1,12 +1,10 @@
 
 const cacheName = 'listGamesV2';
 const appShells = [
-    '/list-of-games/index.html',
-    '/list-of-games/index.js',
-    '/list-of-games/data/data.js'
+    'index.html',
+    'index.js',
+    'data/data.js'
 ];
-
-
 
 self.addEventListener('install', (e)=> {
     console.log(e)
