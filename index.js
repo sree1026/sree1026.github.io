@@ -1,15 +1,27 @@
 import data from "./data/data.js";
 
-const showDataElement = document.getElementById("#showData");
-
 let template = "";
-for(let key in data) {
+
+const t20ListElement = document.getElementById("t20Leagues");
+
+for(let key in data.t20) {
     template += `<li>
-                    <p>Name: ${data[key].name}</p>
-                    <img src=${data[key].img}>
+                    <p>${data.t20[key].name}</p>
+                    <img src=${data.t20[key].img}>
                 </li>`
 }
-showDataElement.innerHTML = template;
+t20ListElement.innerHTML = template;
+
+const worldCupListElement = document.getElementById("worldCupLeagues");
+
+template = "";
+for(let key in data.worldCup) {
+    template += `<li>
+                    <p>${data.worldCup[key].name}</p>
+                    <img src=${data.worldCup[key].img}>
+                </li>`
+}
+worldCupListElement.innerHTML = template;
 
 if('serviceWorker' in navigator) {
 
@@ -21,7 +33,7 @@ if('serviceWorker' in navigator) {
     })
 }
 
-const notifyButton = document.getElementById("#notification");
+const notifyButton = document.getElementById("notification");
 
 notifyButton.addEventListener('click', async ()=> {
     const result = await Notification.requestPermission();

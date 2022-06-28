@@ -9,12 +9,47 @@
     <link rel="manifest" href="list-of-games.webmanifest">
     <title>Games List</title>
     <script type="module" src="./index.js"></script>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h1, p {
+            color: white;
+        }
+
+        ol {
+            display: flex;
+            overflow-x: auto;
+            padding: 0;
+            padding-left: 10px;
+        }
+
+        ol > li {
+            margin: 5px 0;
+            margin-right: 25px;
+        }
+
+        img {
+            border-radius: 20px;
+        }
+
+        hr {
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <head>
-        <h1>List of Popular Cricket Leagues</h1>
+        <h1>T20 Leagues</h1>
     </head>
-    <ol id="#showData"></ol>
-    <button id="#notification">Get Notification</button>
+    <ol id="t20Leagues"></ol>
+    <hr>
+    <head>
+        <h1>World Cup Leagues</h1>
+    </head>
+    <ol id="worldCupLeagues"></ol>
+    <hr>
+    <button id="notification">Get Notification</button>
 </body>
 </html>
